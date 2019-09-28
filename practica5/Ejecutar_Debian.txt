@@ -1,0 +1,7 @@
+Instrucciones para la ejecucion de un programa (ej. P5_demo.py):
+ 1- Ubicarse en la carpeta con los ficheros del programa
+ 2- Ejecutar el entorno virtual: source /home/eduardo/.tensorflow/bin/activate
+ 3- Ejecutar el programa: python P5_demo.py
+ 4- Ejecutar para salir del entorno virtual: deactivate
+Aviso: Por lo que sea da errores en los ficheros .py que tengan acentos, asi que borra los acentos que haya
+

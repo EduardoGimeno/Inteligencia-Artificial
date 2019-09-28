@@ -1,0 +1,260 @@
+Eduardo Gimeno 721615
+
+8-Puzzle
+A continuación se van a analizar los resultados obtenidos por los distintos algoritmos de búsqueda ciega aplicados al problema del 8-Puzzle con sus distintos tableros.
+
+Problema|Profundidad|    Expand|    Q.Size|     MaxQS|    tiempo
+
+Búsqueda primero en anchura
+---------------------------
+BoardWithThreeMoveSolution (Grafo y árbol)
+ BFS-G-3|          3|         5|         4|         5|        10
+ BFS-T-3|          3|         6|         9|        10|         1
+Encuentra la solución a la profundidad esperada, en ambos casos. En árbol tiene un coste en tiempo menor.
+
+Random1 (Grafo y árbol)
+ BFS-G-9|          9|       288|       198|       199|        28
+ BFS-T-9|          9|      5821|     11055|     11056|        67
+Al igual que el anterior, encuentra la solución a la profundidad esperada. Aunque en esta ocasión, en árbol tiene un coste bastante mayor en cuanto a nodos expandidos, tamaño de la frontera y tiempo.
+
+Extreme (Grafo y árbol)
+BFS-G-30|         30|    181058|       365|     24048|       970
+BFS-T-30|        ---|       ---|       ---|       ---|       (2)
+En este caso, en grafo termina a la profundidad esperada, pero en árbol no terminaría ya que no tendría suficiente memoria.
+
+Búsqueda primero en profundidad
+-------------------------------
+BoardWithThreeMoveSolution (Grafo y árbol)
+ DFS-G-3|      59123|    120491|     39830|     42913|       573
+ DFS-T-3|        ---|       ---|       ---|       ---|       (1)
+En grafo encuentra la solución a una profundidad elevada, por ello el resto de costes también lo son. En árbol no es capaz de resolverlo en un tiempo razonable.
+
+Random1 (Grafo y árbol)
+ DFS-G-9|      44665|    141452|     32012|     42967|       512
+ DFS-T-9|        ---|       ---|       ---|       ---|       (1)
+Ocurre lo mismo que en el caso anterior, aunque en grafo los costes son menores.
+
+Extreme (Grafo y árbol)
+DFS-G-30|      62856|     80569|     41533|     41534|       538
+DFS-T-30|        ---|       ---|       ---|       ---|       (1)
+Ocurre lo mismo que en el los casos anteriores.
+
+Búsqueda limitada en profundidad
+--------------------------------
+BoardWithThreeMoveSolution (3 y 9)
+ DLS-9-3|          9|        10|         0|         0|         1
+ DLS-3-3|          3|         4|         0|         0|         1
+Ambas soluciones avanzan hasta la profundidad indicada, con unos costes bajos.
+
+Random1 (3 y 9)
+ DLS-9-9|          9|      5474|         0|         0|        10
+ DLS-3-9|          0|        12|         0|         0|         0
+En grafo avaza hasta la profundidad indicada, con un coste en nodos expandidos mayor.
+En árbol es incompleta, la solución está a mayor profundidad que la indicada.
+
+Extreme (3 y 9)
+DLS-9-30|          0|      4681|         0|         0|         6
+DLS-3-30|          0|         9|         0|         0|         0
+En ambos casos es incompleta, la solución está a mayor profundidad que la indicada.
+
+Búsqueda en profundiad iterativa
+--------------------------------
+BoardWithThreeMoveSolution
+   IDS-3|          3|         9|         0|         0|         0
+Encuentra la solución a la profundidad esperada, con costes reducidos.
+
+Random1
+   IDS-9|          9|      9063|         0|         0|        15
+Encuentra la solución a la profundidad esperada, pero con un coste en expansión de nodos mayor.
+
+Extreme
+  IDS-30|        ---|       ---|       ---|       ---|       (1)
+No es capaz de resolverlo en un tiempo razonable.
+
+Búsqueda de coste uniforme
+--------------------------
+BoardWithThreeMoveSolution (Grafo y árbol)
+ UCS-G-3|          3|        16|         9|        10|         2
+ UCS-T-3|          3|        32|        57|        58|         1
+En grafo encuentra la solución a una profundidad aceptable y con unos costes bajos. En árbol también encuentra la solución a una profundidad aceptable, aunque con unos costes mayores, ya que se repiten nodos.
+
+Random1 (Grafo y árbol)
+ UCS-G-9|          9|       385|       235|       239|         4
+ UCS-T-9|          9|     18070|     31593|     31594|        81
+Ocurre igual que en el caso anterior.
+
+Extreme (Grafo y árbol)
+UCS-G-30|         30|    181390|        49|     24209|       753
+UCS-T-30|        ---|       ---|       ---|       ---|       (1)
+En grafo encuentra la solución a una profundidad aceptable y con unos costes acordes. En árbol no es capaz de resolverlo en un tiempo razonable.
+
+Misioneros y canibales
+A continuación se van a analizar los resultados obtenidos por los distintos algoritmos de búsqueda ciega aplicados al problema de los misioneros y canibales.
+
+Búsqueda primero en anchura
+---------------------------
+Misioneros y canibales BFS-G -->
+pathCost: 11.0
+nodesExpanded: 13
+Tiempo: 36 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M     C      --RIO-- BOTE         C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ         C C BOTE --RIO--      M M M     C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+En grafo encuentra la solución con unos costes razonables, pocos nodos expandidos.
+
+Misioneros y canibales BFS-T -->
+pathCost: 11.0
+nodesExpanded: 12228
+Tiempo: 242 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M     C      --RIO-- BOTE         C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ         C C BOTE --RIO--      M M M     C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+En árbol también encuentra la solución, pero con unos costes más elevados que en el caso anterior. Debido a la repetición de nodos.
+
+Búsqueda primero en profundidad
+-------------------------------
+Misioneros y canibales DFS-G -->
+pathCost: 11.0
+nodesExpanded: 11
+Tiempo: 5 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+Action[name==Mover1C1M(i,f)] RIBERA-IZQ   M M   C C      --RIO-- BOTE     M     C RIBERA-DCH
+  Action[name==Mover1M(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1M(f,i)] RIBERA-IZQ     M     C BOTE --RIO--        M M   C C RIBERA-DCH
+Action[name==Mover1C1M(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+En grafo encuentra la solución con unos costes mejores que la búsqueda anterior en grafo, tanto en tiempo como en nodos expandidos.
+
+Misioneros y canibales DFS-T -->
+--- (1)
+En árbol, sin embargo, no logra encontrar la solución en un tiempo de búsqueda razonable.
+
+Búsqueda limitada en profundidad
+--------------------------------
+Misioneros y canibales DLS(11) -->
+pathCost: 11.0
+nodesExpanded: 5338
+Tiempo: 75 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M     C      --RIO-- BOTE         C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ         C C BOTE --RIO--      M M M     C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+Encuentra la solución a la profundidad indicada, pero con un coste en nodos expandidos elevado.
+
+Búsqueda iterativa en profundidad
+---------------------------------
+Misioneros y canibales IDLS -->
+pathCost: 11.0
+nodesExpanded: 20598
+Tiempo: 93 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M     C      --RIO-- BOTE         C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ         C C BOTE --RIO--      M M M     C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+Ocurre de forma similar que en el caso anterior, encuentra la solución pero con un coste en nodos expandidos elevado.
+
+Búsqueda de coste uniforme
+--------------------------
+Misioneros y canibales UCS-G -->
+pathCost: 11.0
+nodesExpanded: 14
+Tiempo: 3 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+Action[name==Mover1C1M(i,f)] RIBERA-IZQ   M M   C C      --RIO-- BOTE     M     C RIBERA-DCH
+  Action[name==Mover1M(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ         C C BOTE --RIO--      M M M     C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+En grafo encuentra la solución con unos costes razonables, muy cerca de la búsqueda primero en profundidad en grafo.
+
+Misioneros y canibales UCS-T -->
+pathCost: 11.0
+nodesExpanded: 23449
+Tiempo: 161 mls 
+SOLUCIÓN:
+GOAL STATE
+RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+CAMINO ENCONTRADO
+              ESTADO INICIAL RIBERA-IZQ M M M C C C BOTE --RIO--                  RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M     C      --RIO-- BOTE         C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M   C C BOTE --RIO--                C RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ M M M            --RIO-- BOTE       C C C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ M M M     C BOTE --RIO--              C C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ     M     C      --RIO-- BOTE   M M   C C RIBERA-DCH
+Action[name==Mover1C1M(f,i)] RIBERA-IZQ   M M   C C BOTE --RIO--          M     C RIBERA-DCH
+  Action[name==Mover2M(i,f)] RIBERA-IZQ         C C      --RIO-- BOTE M M M     C RIBERA-DCH
+  Action[name==Mover1C(f,i)] RIBERA-IZQ       C C C BOTE --RIO--      M M M       RIBERA-DCH
+  Action[name==Mover2C(i,f)] RIBERA-IZQ           C      --RIO-- BOTE M M M   C C RIBERA-DCH
+  Action[name==Mover1M(f,i)] RIBERA-IZQ     M     C BOTE --RIO--        M M   C C RIBERA-DCH
+Action[name==Mover1C1M(i,f)] RIBERA-IZQ                  --RIO-- BOTE M M M C C C RIBERA-DCH
+En árbol encuentra la solución con unos costes elevados, debido a la repetición de nodos durante la búsqueda.

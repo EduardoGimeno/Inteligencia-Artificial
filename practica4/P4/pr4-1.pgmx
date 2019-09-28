@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Comment showWhenOpeningNetwork="false"><![CDATA[<<Pulse dos veces para incluir/modificar comentario>>]]></Comment>
+    <AdditionalProperties />
+    <Variables>
+      <Variable name="A" type="finiteStates" role="chance">
+        <Coordinates x="158" y="73" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="T" type="finiteStates" role="chance">
+        <Coordinates x="294" y="179" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="E" type="finiteStates" role="chance">
+        <Coordinates x="407" y="280" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="C" type="finiteStates" role="chance">
+        <Coordinates x="545" y="181" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="F" type="finiteStates" role="chance">
+        <Coordinates x="681" y="71" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="B" type="finiteStates" role="chance">
+        <Coordinates x="768" y="185" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="D" type="finiteStates" role="chance">
+        <Coordinates x="665" y="299" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+      <Variable name="X" type="finiteStates" role="chance">
+        <Coordinates x="221" y="400" />
+        <States>
+          <State name="no" />
+          <State name="sí" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="A" />
+        <Variable name="T" />
+      </Link>
+      <Link directed="true">
+        <Variable name="T" />
+        <Variable name="E" />
+      </Link>
+      <Link directed="true">
+        <Variable name="E" />
+        <Variable name="X" />
+      </Link>
+      <Link directed="true">
+        <Variable name="E" />
+        <Variable name="D" />
+      </Link>
+      <Link directed="true">
+        <Variable name="C" />
+        <Variable name="E" />
+      </Link>
+      <Link directed="true">
+        <Variable name="F" />
+        <Variable name="C" />
+      </Link>
+      <Link directed="true">
+        <Variable name="F" />
+        <Variable name="B" />
+      </Link>
+      <Link directed="true">
+        <Variable name="B" />
+        <Variable name="D" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="A" />
+        </Variables>
+        <Values>0.99 0.01</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="T" />
+          <Variable name="A" />
+        </Variables>
+        <Values>0.99 0.01 0.95 0.05</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="E" />
+          <Variable name="T" />
+          <Variable name="C" />
+        </Variables>
+        <Values>1.0 0.0 0.0 1.0 0.0 1.0 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="C" />
+          <Variable name="F" />
+        </Variables>
+        <Values>0.99 0.01 0.9 0.1</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="F" />
+        </Variables>
+        <Values>0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="B" />
+          <Variable name="F" />
+        </Variables>
+        <Values>0.7 0.3 0.4 0.6</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="D" />
+          <Variable name="B" />
+          <Variable name="E" />
+        </Variables>
+        <Values>0.9 0.1 0.2 0.8 0.3 0.7 0.1 0.9</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="X" />
+          <Variable name="E" />
+        </Variables>
+        <Values>0.95 0.05 0.02 0.98</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>

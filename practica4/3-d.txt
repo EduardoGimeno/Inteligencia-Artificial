@@ -1,0 +1,1 @@
+Las probabilidades salen iguales porque aunque las redes sean distintas (no causal/causal) son equivalentes

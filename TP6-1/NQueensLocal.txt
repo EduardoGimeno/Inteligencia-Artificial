@@ -1,0 +1,22 @@
+NQueens HillClimbing con 10000 estados iniciales diferentes -->
+Fallos: 84,92
+Coste medio fallos: 3,06
+Exitos: 15,08
+Coste medio exitos: 4,04
+
+Search Outcome=SOLUTION_FOUND
+Final State=
+-----Q--
+--Q-----
+------Q-
+-Q------
+-------Q
+----Q---
+Q-------
+---Q----
+
+
+Numero de intentos: 14.0
+Fallos: 13.0
+Coste medio fallos: 2,69
+Coste Exito: 4,00

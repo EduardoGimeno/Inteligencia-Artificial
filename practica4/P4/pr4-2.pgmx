@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <AdditionalProperties>
+      <Property name="hasElviraProperties" value="yes" />
+    </AdditionalProperties>
+    <Variables>
+      <Variable name="Sexo" type="finiteStates" role="chance">
+        <Coordinates x="718" y="162" />
+        <States>
+          <State name="Mujer" />
+          <State name="Hombre" />
+        </States>
+      </Variable>
+      <Variable name="Carrera" type="finiteStates" role="chance">
+        <Coordinates x="262" y="125" />
+        <States>
+          <State name="D" />
+          <State name="C" />
+          <State name="A" />
+          <State name="B" />
+        </States>
+      </Variable>
+      <Variable name="Admitido" type="finiteStates" role="chance">
+        <Coordinates x="262" y="292" />
+        <States>
+          <State name="si" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="Sexo" />
+        <Variable name="Carrera" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Sexo" />
+        <Variable name="Admitido" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Carrera" />
+        <Variable name="Admitido" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Sexo" />
+        </Variables>
+        <Values>0.3422315537 0.6577684463</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Carrera" />
+          <Variable name="Sexo" />
+        </Variables>
+        <Values>0.3406304729 0.5467016929 0.0890251022 0.023642732 0.1940139775 0.1642357946 0.3875721665 0.2541780614</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Admitido" />
+          <Variable name="Sexo" />
+          <Variable name="Carrera" />
+        </Variables>
+        <Values>0.3210616438 0.6789383562 0.3215962441 0.6784037559 0.3196371398 0.6803628602 0.3798521257 0.6201478743 0.8137254902 0.1862745098 0.6242163009 0.3757836991 0.6707317073 0.3292682927 0.6230585424 0.3769414576</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>

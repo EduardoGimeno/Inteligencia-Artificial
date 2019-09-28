@@ -1,0 +1,2 @@
+Instalación Anaconda-Keras-TensorFlow para Debian
+1 - Ejecutar tensorflow-virtual.sh

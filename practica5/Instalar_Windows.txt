@@ -1,0 +1,12 @@
+Instalación Anaconda-Keras-TensorFlow para Windows
+1 - Ejecutar Anaconda2-2018.12-Windows-0x86_64.exe (descargar https://www.anaconda.com/download/#linux (python 2.7 version))
+2 - Seleccionar opción añadir al path
+3 - Buscar en el navegador de Windows Anaconda Prompt
+4 - Ejecutar los siguientes comandos:
+	- conda create -n py35 python=3.5 anaconda
+	- conda activate py35
+	- conda install tensorflow
+	- conda install -c conda-forge keras
+	- conda install spyder
+5 - Reiniciar la consola
+6 - Introducir spyder para iniciar el IDE instalado
